@@ -1,0 +1,9 @@
+C:\Users\Vkaiido\source\repos\JOBTIND21\obj\Debug\net5.0\JOBTIND21.csprojAssemblyReference.cache
+C:\Users\Vkaiido\source\repos\JOBTIND21\obj\Debug\net5.0\JOBTIND21.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vkaiido\source\repos\JOBTIND21\obj\Debug\net5.0\JOBTIND21.AssemblyInfoInputs.cache
+C:\Users\Vkaiido\source\repos\JOBTIND21\obj\Debug\net5.0\JOBTIND21.AssemblyInfo.cs
+C:\Users\Vkaiido\source\repos\JOBTIND21\obj\Debug\net5.0\JOBTIND21.csproj.CoreCompileInputs.cache
+C:\Users\Vkaiido\source\repos\JOBTIND21\obj\Debug\net5.0\JOBTIND21.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Vkaiido\source\repos\JOBTIND21\obj\Debug\net5.0\JOBTIND21.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Vkaiido\source\repos\JOBTIND21\obj\Debug\net5.0\JOBTIND21.RazorAssemblyInfo.cache
+C:\Users\Vkaiido\source\repos\JOBTIND21\obj\Debug\net5.0\JOBTIND21.RazorAssemblyInfo.cs
