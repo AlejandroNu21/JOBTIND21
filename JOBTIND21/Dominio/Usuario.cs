@@ -19,7 +19,7 @@ namespace JOBTIND21.Dominio
         public string DUI { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
-        private string Contrasenia { get; set; }
+        private string Contraseña { get; set; }
         public string Especializacion { get; set; }
 
         public ICollection<Anuncio> Anuncios { get; set; }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JOBTIND21.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211027144815_Migrations")]
+    [Migration("20211027161951_Migrations")]
     partial class Migrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,23 +31,17 @@ namespace JOBTIND21.Migrations
                     b.Property<string>("Anuncios")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("EmpresaId_Empresa")
+                    b.Property<int?>("Id_Empresa1")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id_Empresa")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id_Usuario")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UsuarioId_Usuario")
+                    b.Property<int?>("Id_Usuario1")
                         .HasColumnType("int");
 
                     b.HasKey("Id_Anuncio");
 
-                    b.HasIndex("EmpresaId_Empresa");
+                    b.HasIndex("Id_Empresa1");
 
-                    b.HasIndex("UsuarioId_Usuario");
+                    b.HasIndex("Id_Usuario1");
 
                     b.ToTable("Anuncio");
                 });
@@ -111,17 +105,17 @@ namespace JOBTIND21.Migrations
 
             modelBuilder.Entity("JOBTIND21.Dominio.Anuncio", b =>
                 {
-                    b.HasOne("JOBTIND21.Dominio.Empresa", "Empresa")
+                    b.HasOne("JOBTIND21.Dominio.Empresa", "Id_Empresa")
                         .WithMany()
-                        .HasForeignKey("EmpresaId_Empresa");
+                        .HasForeignKey("Id_Empresa1");
 
-                    b.HasOne("JOBTIND21.Dominio.Usuario", "Usuario")
+                    b.HasOne("JOBTIND21.Dominio.Usuario", "Id_Usuario")
                         .WithMany("Anuncios")
-                        .HasForeignKey("UsuarioId_Usuario");
+                        .HasForeignKey("Id_Usuario1");
 
-                    b.Navigation("Empresa");
+                    b.Navigation("Id_Empresa");
 
-                    b.Navigation("Usuario");
+                    b.Navigation("Id_Usuario");
                 });
 
             modelBuilder.Entity("JOBTIND21.Dominio.Usuario", b =>
