@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace JOBTIND21.Dominio
 {
-    public class Anuncio
+    public class Categoria
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id_Anuncio { get; set; }
-        
-        public string Anuncios { get; set; }
-        
-        public Usuario ID_Usuario { get; set; }
+        public int Id_Categoria { get; set; }
+        public string Categorias { get; set; }
 
-        public Empresa ID_Empresa { get; set; }
+        public ICollection<Empresa> Empresas { get; set; }
+
     }
 }

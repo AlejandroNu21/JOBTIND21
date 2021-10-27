@@ -7,19 +7,16 @@ namespace JOBTIND21.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Empresas",
+                name: "Categoria",
                 columns: table => new
                 {
-                    Id_Empresa = table.Column<int>(type: "int", nullable: false)
+                    Id_Categoria = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre_Empresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Telefono = table.Column<int>(type: "int", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Vacante = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Categorias = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Empresas", x => x.Id_Empresa);
+                    table.PrimaryKey("PK_Categoria", x => x.Id_Categoria);
                 });
 
             migrationBuilder.CreateTable(
@@ -34,11 +31,35 @@ namespace JOBTIND21.Migrations
                     DUI = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Especializacion = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Contraseña = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usuarios", x => x.Id_Usuario);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Empresas",
+                columns: table => new
+                {
+                    Id_Empresa = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre_Empresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TelefonoEmp = table.Column<int>(type: "int", nullable: false),
+                    EmailEmp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContraseñaEmp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Vacante = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Id_Categoria = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Empresas", x => x.Id_Empresa);
+                    table.ForeignKey(
+                        name: "FK_Empresas_Categoria_Id_Categoria",
+                        column: x => x.Id_Categoria,
+                        principalTable: "Categoria",
+                        principalColumn: "Id_Categoria",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -48,35 +69,40 @@ namespace JOBTIND21.Migrations
                     Id_Anuncio = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Anuncios = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Id_Usuario1 = table.Column<int>(type: "int", nullable: true),
-                    Id_Empresa1 = table.Column<int>(type: "int", nullable: true)
+                    Id_Usuario = table.Column<int>(type: "int", nullable: true),
+                    Id_Empresa = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Anuncio", x => x.Id_Anuncio);
                     table.ForeignKey(
-                        name: "FK_Anuncio_Empresas_Id_Empresa1",
-                        column: x => x.Id_Empresa1,
+                        name: "FK_Anuncio_Empresas_Id_Empresa",
+                        column: x => x.Id_Empresa,
                         principalTable: "Empresas",
                         principalColumn: "Id_Empresa",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Anuncio_Usuarios_Id_Usuario1",
-                        column: x => x.Id_Usuario1,
+                        name: "FK_Anuncio_Usuarios_Id_Usuario",
+                        column: x => x.Id_Usuario,
                         principalTable: "Usuarios",
                         principalColumn: "Id_Usuario",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Anuncio_Id_Empresa1",
+                name: "IX_Anuncio_Id_Empresa",
                 table: "Anuncio",
-                column: "Id_Empresa1");
+                column: "Id_Empresa");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Anuncio_Id_Usuario1",
+                name: "IX_Anuncio_Id_Usuario",
                 table: "Anuncio",
-                column: "Id_Usuario1");
+                column: "Id_Usuario");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Empresas_Id_Categoria",
+                table: "Empresas",
+                column: "Id_Categoria");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -89,6 +115,9 @@ namespace JOBTIND21.Migrations
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
+
+            migrationBuilder.DropTable(
+                name: "Categoria");
         }
     }
 }

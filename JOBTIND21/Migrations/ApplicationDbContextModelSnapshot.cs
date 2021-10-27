@@ -29,19 +29,34 @@ namespace JOBTIND21.Migrations
                     b.Property<string>("Anuncios")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Id_Empresa1")
+                    b.Property<int?>("Id_Empresa")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Id_Usuario1")
+                    b.Property<int?>("Id_Usuario")
                         .HasColumnType("int");
 
                     b.HasKey("Id_Anuncio");
 
-                    b.HasIndex("Id_Empresa1");
+                    b.HasIndex("Id_Empresa");
 
-                    b.HasIndex("Id_Usuario1");
+                    b.HasIndex("Id_Usuario");
 
                     b.ToTable("Anuncio");
+                });
+
+            modelBuilder.Entity("JOBTIND21.Dominio.Categoria", b =>
+                {
+                    b.Property<int>("Id_Categoria")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Categorias")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id_Categoria");
+
+                    b.ToTable("Categoria");
                 });
 
             modelBuilder.Entity("JOBTIND21.Dominio.Empresa", b =>
@@ -51,19 +66,27 @@ namespace JOBTIND21.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Email")
+                    b.Property<string>("ContraseñaEmp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmailEmp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Id_Categoria")
+                        .HasColumnType("int");
 
                     b.Property<string>("Nombre_Empresa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Telefono")
+                    b.Property<int>("TelefonoEmp")
                         .HasColumnType("int");
 
                     b.Property<string>("Vacante")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id_Empresa");
+
+                    b.HasIndex("Id_Categoria");
 
                     b.ToTable("Empresas");
                 });
@@ -78,6 +101,9 @@ namespace JOBTIND21.Migrations
                     b.Property<string>("Apellidos")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Contraseña")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DUI")
                         .HasColumnType("nvarchar(max)");
 
@@ -85,9 +111,6 @@ namespace JOBTIND21.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Especializacion")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombres")
@@ -103,17 +126,36 @@ namespace JOBTIND21.Migrations
 
             modelBuilder.Entity("JOBTIND21.Dominio.Anuncio", b =>
                 {
-                    b.HasOne("JOBTIND21.Dominio.Empresa", "Id_Empresa")
-                        .WithMany()
-                        .HasForeignKey("Id_Empresa1");
-
-                    b.HasOne("JOBTIND21.Dominio.Usuario", "Id_Usuario")
+                    b.HasOne("JOBTIND21.Dominio.Empresa", "ID_Empresa")
                         .WithMany("Anuncios")
-                        .HasForeignKey("Id_Usuario1");
+                        .HasForeignKey("Id_Empresa");
 
-                    b.Navigation("Id_Empresa");
+                    b.HasOne("JOBTIND21.Dominio.Usuario", "ID_Usuario")
+                        .WithMany("Anuncios")
+                        .HasForeignKey("Id_Usuario");
 
-                    b.Navigation("Id_Usuario");
+                    b.Navigation("ID_Empresa");
+
+                    b.Navigation("ID_Usuario");
+                });
+
+            modelBuilder.Entity("JOBTIND21.Dominio.Empresa", b =>
+                {
+                    b.HasOne("JOBTIND21.Dominio.Categoria", "ID_Categoria")
+                        .WithMany("Empresas")
+                        .HasForeignKey("Id_Categoria");
+
+                    b.Navigation("ID_Categoria");
+                });
+
+            modelBuilder.Entity("JOBTIND21.Dominio.Categoria", b =>
+                {
+                    b.Navigation("Empresas");
+                });
+
+            modelBuilder.Entity("JOBTIND21.Dominio.Empresa", b =>
+                {
+                    b.Navigation("Anuncios");
                 });
 
             modelBuilder.Entity("JOBTIND21.Dominio.Usuario", b =>

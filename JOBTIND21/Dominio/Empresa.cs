@@ -13,8 +13,13 @@ namespace JOBTIND21.Dominio
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id_Empresa { get; set; }
         public string Nombre_Empresa { get; set; }
-        public int Telefono { get; set; }
-        public string Email { get; set; }
+        public int TelefonoEmp { get; set; }
+        public string EmailEmp { get; set; }
+        public string ContraseñaEmp { get; set; }
         public string Vacante { get; set; }
+        public Categoria ID_Categoria { get; set; }
+
+        public ICollection<Anuncio> Anuncios { get; set; }
+
     }
 }
