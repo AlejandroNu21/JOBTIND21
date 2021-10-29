@@ -10,20 +10,20 @@ namespace JOBTIND21.Migrations
                 name: "Categoria",
                 columns: table => new
                 {
-                    Id_Categoria = table.Column<int>(type: "int", nullable: false)
+                    CategoriaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Categorias = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categoria", x => x.Id_Categoria);
+                    table.PrimaryKey("PK_Categoria", x => x.CategoriaId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Usuarios",
                 columns: table => new
                 {
-                    Id_Usuario = table.Column<int>(type: "int", nullable: false)
+                    UsuarioId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombres = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Apellidos = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -35,74 +35,74 @@ namespace JOBTIND21.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Usuarios", x => x.Id_Usuario);
+                    table.PrimaryKey("PK_Usuarios", x => x.UsuarioId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Empresas",
                 columns: table => new
                 {
-                    Id_Empresa = table.Column<int>(type: "int", nullable: false)
+                    EmpresaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre_Empresa = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TelefonoEmp = table.Column<int>(type: "int", nullable: false),
                     EmailEmp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ContraseñaEmp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Vacante = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Id_Categoria = table.Column<int>(type: "int", nullable: true)
+                    CategoriaID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Empresas", x => x.Id_Empresa);
+                    table.PrimaryKey("PK_Empresas", x => x.EmpresaId);
                     table.ForeignKey(
-                        name: "FK_Empresas_Categoria_Id_Categoria",
-                        column: x => x.Id_Categoria,
+                        name: "FK_Empresas_Categoria_CategoriaID",
+                        column: x => x.CategoriaID,
                         principalTable: "Categoria",
-                        principalColumn: "Id_Categoria",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "CategoriaId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Anuncio",
                 columns: table => new
                 {
-                    Id_Anuncio = table.Column<int>(type: "int", nullable: false)
+                    AnuncioId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Anuncios = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Id_Usuario = table.Column<int>(type: "int", nullable: true),
-                    Id_Empresa = table.Column<int>(type: "int", nullable: true)
+                    UsuarioID = table.Column<int>(type: "int", nullable: false),
+                    EmpresaID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Anuncio", x => x.Id_Anuncio);
+                    table.PrimaryKey("PK_Anuncio", x => x.AnuncioId);
                     table.ForeignKey(
-                        name: "FK_Anuncio_Empresas_Id_Empresa",
-                        column: x => x.Id_Empresa,
+                        name: "FK_Anuncio_Empresas_EmpresaID",
+                        column: x => x.EmpresaID,
                         principalTable: "Empresas",
-                        principalColumn: "Id_Empresa",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "EmpresaId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Anuncio_Usuarios_Id_Usuario",
-                        column: x => x.Id_Usuario,
+                        name: "FK_Anuncio_Usuarios_UsuarioID",
+                        column: x => x.UsuarioID,
                         principalTable: "Usuarios",
-                        principalColumn: "Id_Usuario",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "UsuarioId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Anuncio_Id_Empresa",
+                name: "IX_Anuncio_EmpresaID",
                 table: "Anuncio",
-                column: "Id_Empresa");
+                column: "EmpresaID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Anuncio_Id_Usuario",
+                name: "IX_Anuncio_UsuarioID",
                 table: "Anuncio",
-                column: "Id_Usuario");
+                column: "UsuarioID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Empresas_Id_Categoria",
+                name: "IX_Empresas_CategoriaID",
                 table: "Empresas",
-                column: "Id_Categoria");
+                column: "CategoriaID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

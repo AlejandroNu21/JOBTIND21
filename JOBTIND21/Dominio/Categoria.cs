@@ -11,7 +11,7 @@ namespace JOBTIND21.Dominio
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id_Categoria { get; set; }
+        public int CategoriaId { get; set; }
         public string Categorias { get; set; }
 
         public ICollection<Empresa> Empresas { get; set; }

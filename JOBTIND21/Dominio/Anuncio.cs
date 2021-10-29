@@ -11,12 +11,16 @@ namespace JOBTIND21.Dominio
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id_Anuncio { get; set; }
+        public int AnuncioId { get; set; }
         
         public string Anuncios { get; set; }
-        
-        public Usuario ID_Usuario { get; set; }
 
-        public Empresa ID_Empresa { get; set; }
+        public int UsuarioID { get; set; }
+        public int EmpresaID { get; set; }
+
+
+        public Usuario Usuario { get; set; }
+
+        public Empresa Empresa { get; set; }
     }
 }

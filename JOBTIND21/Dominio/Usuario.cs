@@ -11,7 +11,7 @@ namespace JOBTIND21.Dominio
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id_Usuario { get; set; }
+        public int UsuarioId { get; set; }
 
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
