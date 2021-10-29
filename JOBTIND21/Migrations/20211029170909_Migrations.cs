@@ -25,13 +25,13 @@ namespace JOBTIND21.Migrations
                 {
                     UsuarioId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombres = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Apellidos = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nombres = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Apellidos = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Edad = table.Column<int>(type: "int", nullable: false),
-                    DUI = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Contraseña = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    DUI = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Contraseña = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

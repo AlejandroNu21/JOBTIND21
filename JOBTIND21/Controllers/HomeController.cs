@@ -1,4 +1,6 @@
-﻿using JOBTIND21.Models;
+﻿using JOBTIND21.Dominio;
+using JOBTIND21.Models;
+using JOBTIND21.Servicio;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,15 +14,47 @@ namespace JOBTIND21.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IUsuario iusuario;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IUsuario iusuario)
         {
+            this.iusuario = iusuario;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
+            //Usuario usuario = new Usuario();
+            //usuario.Nombres = "Carlos";
+            //usuario.Apellidos = "Nuñez";
+            //usuario.Edad = 21;
+            //usuario.DUI = "06136652-4";
+            //usuario.Telefono = "7726-5432";
+            //usuario.Email = "kaidovasquez@gmail.com";
+            //usuario.Contraseña = "Anitalahuerfanita";
+            //iusuario.Insertar(usuario);
             return View();
+
+
+        }
+
+        public IActionResult Guardar()
+        {
+            return View();
+        }
+
+        public IActionResult Guardado(Usuario c)
+        {
+            if (ModelState.IsValid)
+            {
+                iusuario.Insertar(c);
+                return View();
+            }
+            else
+            {
+                return View("Guardado", c);
+            }
+           
         }
 
         public IActionResult Privacy()

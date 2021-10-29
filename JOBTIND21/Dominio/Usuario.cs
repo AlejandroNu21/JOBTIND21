@@ -13,12 +13,34 @@ namespace JOBTIND21.Dominio
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UsuarioId { get; set; }
 
+        [Display(Name = "Nombre")]
+        [Required(ErrorMessage = "DATO OBLIGATORIO")]
         public string Nombres { get; set; }
+
+        [Display(Name = "Apellidos")]
+        [Required(ErrorMessage = "DATO OBLIGATORIO")]
         public string Apellidos { get; set; }
+
+        [Display(Name = "Edad")]
+        [Required(ErrorMessage = "DATO OBLIGATORIO")]
+        [Range(18, int.MaxValue, ErrorMessage = "Lo sentimos, debes ser mayor de edad.")]
         public int Edad { get; set; }
+
+
+        [Display(Name = "Dui")]
+        [Required(ErrorMessage = "DATO OBLIGATORIO")]
         public string DUI { get; set; }
+
+        [Display(Name = "Telefono")]
+        [Required(ErrorMessage = "DATO OBLIGATORIO")]
         public string Telefono { get; set; }
+
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "DATO OBLIGATORIO")]
         public string Email { get; set; }
+
+        [Display(Name = "Contraseña")]
+        [Required(ErrorMessage = "DATO OBLIGATORIO")]
         public string Contraseña { get; set; }
 
         public ICollection<Anuncio> Anuncios { get; set; }
