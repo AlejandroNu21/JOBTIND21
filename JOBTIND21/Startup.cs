@@ -30,6 +30,8 @@ namespace JOBTIND21
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IUsuario, UsuarioRepositorio>();
+            services.AddTransient<IEmpresa, EmpresaRepositorio>();
+            services.AddTransient<IAnuncio, AnuncioRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

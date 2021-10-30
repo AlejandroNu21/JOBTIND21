@@ -15,10 +15,14 @@ namespace JOBTIND21.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private IUsuario iusuario;
+        private IEmpresa iempresa;
+        private IAnuncio ianuncio;
 
-        public HomeController(ILogger<HomeController> logger, IUsuario iusuario)
+        public HomeController(ILogger<HomeController> logger, IUsuario iusuario, IEmpresa iempresa, IAnuncio ianuncio)
         {
             this.iusuario = iusuario;
+            this.iempresa = iempresa;
+            this.ianuncio = ianuncio;
             _logger = logger;
         }
 
@@ -56,6 +60,43 @@ namespace JOBTIND21.Controllers
             }
            
         }
+
+        public IActionResult Guard()
+        {
+            return View();
+        }
+
+        public IActionResult GuardEmpresa(Empresa E)
+        {
+            if (ModelState.IsValid)
+            {
+                iempresa.Guardar(E);
+                return View();
+            }
+            else
+            {
+                return View("GuardEmpresa", E);
+            }
+        }
+
+        public IActionResult Save()
+        {
+            return View();
+        }
+
+        public IActionResult SaveAnuncio(Anuncio a)
+        {
+            if (ModelState.IsValid)
+            {
+                ianuncio.Save(a);
+                return View();
+            }
+            else
+            {
+                return View("SaveAnuncio", a);
+            }
+        }
+
 
         public IActionResult Privacy()
         {

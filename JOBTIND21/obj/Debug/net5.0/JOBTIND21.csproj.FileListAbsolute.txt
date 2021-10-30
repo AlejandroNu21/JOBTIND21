@@ -1213,3 +1213,5 @@ C:\Users\Vkaiido\Documents\GitHub\JOBTIND21\JOBTIND21\bin\Debug\net5.0\zh-Hant\M
 C:\Users\Vkaiido\Documents\GitHub\JOBTIND21\JOBTIND21\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\Vkaiido\Documents\GitHub\JOBTIND21\JOBTIND21\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\Vkaiido\Documents\GitHub\JOBTIND21\JOBTIND21\obj\Debug\net5.0\Razor\Views\Home\Guardado.cshtml.g.cs
+C:\Users\Vkaiido\Documents\GitHub\JOBTIND21\JOBTIND21\obj\Debug\net5.0\Razor\Views\Home\GuardEmpresa.cshtml.g.cs
+C:\Users\Vkaiido\Documents\GitHub\JOBTIND21\JOBTIND21\obj\Debug\net5.0\Razor\Views\Home\SaveAnuncio.cshtml.g.cs
