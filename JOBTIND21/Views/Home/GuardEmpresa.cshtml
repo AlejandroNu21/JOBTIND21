@@ -4,61 +4,71 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>GuardEmpresa</h1>
+<h1 style="color: royalblue" class=" animate__animated animate__fadeInUp">GuardEmpresa</h1>
+
+<link rel="stylesheet"
+      href="https://kit.fontawesome.com/ffd11ebe0f.js" crossorigin="anonymous" />
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js>" />
+
+<script src="https://kit.fontawesome.com/ffd11ebe0f.js" crossorigin="anonymous"></script>
 
 @using (Html.BeginForm("GuardEmpresa", "Home", FormMethod.Post))
 {
 
 
-    <h2 class=" animate__animated animate__bounce">Bienvenido, Ingrese los datos de la empresa para registrarla</h2>
+    <h2 style="color: royalblue" class=" animate__animated animate__fadeInUp">Bienvenido, Ingrese los datos de la empresa para registrarla</h2>
     <br>
-    <i class="fas fa-book"></i>
-    <label>Nombre de empresa</label>
+    <i class="fas fa-globe"></i>
+    <label class=" animate__animated animate__fadeInUp">Nombre de empresa</label>
     <br />
     @Html.TextBoxFor(m => m.Nombre_Empresa)
     @Html.ValidationMessageFor(m => m.Nombre_Empresa)
     <br />
     <br />
-    <i class="far fa-star"></i>
-    <br />
-    <label>Telefono</label>
+    <i class="fas fa-phone-square-alt"></i>
+    <label class=" animate__animated animate__fadeInUp">Telefono</label>
     <br />
     @Html.TextBoxFor(m => m.TelefonoEmp)
     @Html.ValidationMessageFor(m => m.TelefonoEmp)
     <br />
     <br />
-    <i class="fas fa-book"></i>
-    <label>Email</label>
+    <i class="fas fa-at"></i>
+    <label class=" animate__animated animate__fadeInUp">Email</label>
     <br />
     @Html.TextBoxFor(m => m.EmailEmp)
     @Html.ValidationMessageFor(m => m.EmailEmp)
     <br />
     <br />
 
-    <i class="fas fa-book"></i>
-    <label>Contraseña</label>
+    <i class="fas fa-lock"></i>
+    <label class=" animate__animated animate__fadeInUp">Contraseña</label>
     <br />
     @Html.TextBoxFor(m => m.ContraseñaEmp)
     @Html.ValidationMessageFor(m => m.ContraseñaEmp)
     <br />
     <br />
 
-    <i class="fas fa-book"></i>
-    <label>Vacante</label>
+    <i class="far fa-newspaper"></i>
+    <label class=" animate__animated animate__fadeInUp">Vacante</label>
     <br />
     @Html.TextBoxFor(m => m.Vacante)
     @Html.ValidationMessageFor(m => m.Vacante)
     <br />
     <br />
 
-    <i class="fas fa-book"></i>
-    <label>Categoria</label>
+    <i class="fas fa-th-list"></i>
+    <label class=" animate__animated animate__fadeInUp">Categoria</label>
     <br />
     @Html.TextBoxFor(m => m.CategoriaID)
     @Html.ValidationMessageFor(m => m.CategoriaID)
     <br />
     <br />
-    <input type="submit">
+    <input type="submit" class="btn btn-outline-danger animate__animated animate__jello ">
     <br>
 }
 <h2 class="wow animate__animated animate__pulse" data-wow-duration="2s" data-wow-delay="2s">Guardar</h2>
