@@ -1,75 +1,97 @@
-﻿@model JOBTIND21.Dominio.Usuario;
+﻿@model JOBTIND21.Dominio.Usuario
 @{
     ViewData["Title"] = "Guardado";
 }
 
-<h1>Guardado</h1>
+<link rel="stylesheet"
+      href="https://kit.fontawesome.com/ffd11ebe0f.js" crossorigin="anonymous" />
 
-@using (Html.BeginForm("Guardar", "Home", FormMethod.Post))
-{
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js>" />
+
+<script src="https://kit.fontawesome.com/ffd11ebe0f.js" crossorigin="anonymous"></script>
 
 
-    <h2 class=" animate__animated animate__bounce">Bienvenido, Ingrese sus datos para Registrarse</h2>
-    <br>
-    <i class="fas fa-book"></i>
-    <label>Nombres de Usuario</label>
-    <br />
-    @Html.TextBoxFor(m => m.Nombres)
-    @Html.ValidationMessageFor(m => m.Nombres)
-    <br />
-    <br />
-    <i class="far fa-star"></i>
-    <br />
-    <label>Apellido</label>
-    <br />
-    @Html.TextBoxFor(m => m.Apellidos)
-    @Html.ValidationMessageFor(m => m.Apellidos)
-    <br />
-    <br />
-    <i class="fas fa-book"></i>
-    <label>Edad</label>
-    <br />
-    @Html.TextBoxFor(m => m.Edad)
-    @Html.ValidationMessageFor(m => m.Edad)
-    <br />
-    <br />
+<div class="container-fluid formulario" style="max-width:inherit;">
 
-    <i class="fas fa-book"></i>
-    <label>DUI</label>
-    <br />
-    @Html.TextBoxFor(m => m.DUI)
-    @Html.ValidationMessageFor(m => m.DUI)
-    <br />
-    <br />
+    @using (Html.BeginForm("Guardar", "Home", FormMethod.Post))
+    {
 
-    <i class="fas fa-book"></i>
-    <label>Telefono</label>
-    <br />
-    @Html.TextBoxFor(m => m.Telefono)
-    @Html.ValidationMessageFor(m => m.Telefono)
-    <br />
-    <br />
+    <div class="text-center">
+        <h1 style="color: cornflowerblue" class=" animate__animated animate__jello">Registro de Datos</h1>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <i class="fas fa-book"></i>
-    <label>E-mail</label>
-    <br />
-    @Html.TextBoxFor(m => m.Email)
-    @Html.ValidationMessageFor(m => m.Email)
-    <br />
-    <br />
-    <i class="fas fa-book"></i>
-    <label>Contraseña</label>
-    <br />
-    @Html.TextBoxFor(m => m.Contraseña)
-    @Html.ValidationMessageFor(m => m.Contraseña)
-    <br />
-    <br />
-    <br />
-    <input type="submit">
-    <br>
-}
-<h2 class="wow animate__animated animate__pulse" data-wow-duration="2s" data-wow-delay="2s">Guardar</h2>
-<script src="https://cdn.boomcdn.com/libs/wow-js/1.3.0/wow.js"></script>
-<script type="text/javascript">
-    new WOW().init();
-</script>
+
+        <style>
+            h1 {
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 35px;
+                color: firebrick
+            }
+        </style>
+    </div>
+        <div class="form-group col-md-8">
+            <i class="fa-solid fa-input-text"></i>
+            <label style="color: salmon">Nombres</label>
+            <br />
+            @Html.TextBoxFor(m => m.Nombres)
+            @Html.ValidationMessageFor(m => m.Nombres)
+            <br />
+            <br />
+            <i class="fa-duotone fa-file-signature"></i>
+            <br />
+            <label style="color: salmon">Apellido</label>
+            <br />
+            @Html.TextBoxFor(m => m.Apellidos)
+            @Html.ValidationMessageFor(m => m.Apellidos)
+            <br />
+            <br />
+            <i class="fa-duotone fa-file-signature"></i>
+            <label style="color: salmon">Edad</label>
+            <br />
+            @Html.TextBoxFor(m => m.Edad)
+            @Html.ValidationMessageFor(m => m.Edad)
+            <br />
+            <br />
+
+            <i class="fa-light fa-address-card"></i>
+            <label style="color: salmon">DUI</label>
+
+            <br />
+            @Html.TextBoxFor(m => m.DUI)
+            @Html.ValidationMessageFor(m => m.DUI)
+            <br />
+            <br />
+
+            <i class="fa-light fa-phone"></i>
+            <label style="color: salmon">Telefono</label>
+            <br />
+            @Html.TextBoxFor(m => m.Telefono)
+            @Html.ValidationMessageFor(m => m.Telefono)
+            <br />
+            <br />
+
+            <i class="fa-regular fa-at"></i>
+            <label style="color: salmon">E-mail</label>
+            <br />
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+            <br />
+            <br />
+            <i class="fa-light fa-lock"></i>
+            <label style="color: salmon">Contraseña</label>
+            <br />
+            @Html.TextBoxFor(m => m.Contraseña)
+            @Html.ValidationMessageFor(m => m.Contraseña)
+            <br />
+            <br />
+            <br />
+            <i class="far fa-save fa-2x"></i>
+            <input type="submit" class="btn btn-outline-success animate_animated animate_backInDown" value="Guardar">
+            <br>
+        </div>
+     }
+</div>
