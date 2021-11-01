@@ -20,37 +20,44 @@
 @using (Html.BeginForm("SaveAnuncio", "Home", FormMethod.Post))
 {
 
-   <link rel="stylesheet" href="~/css/Estilo.css" />
-    <body>
+   <link rel="stylesheet" href="~/css/Anuncio.css" />
+   <body>
 
-        <h2 style="color: royalblue" class=" animate__animated animate__fadeInLeft">Ingrese su Anuncio por favor.</h2>
-        <br>
-        <i class="fas fa-newspaper"></i>
-        <label class=" animate__animated animate__fadeInLeft">Anuncio</label>
-        <br />
-        @Html.TextBoxFor(m => m.Anuncios)
-        @Html.ValidationMessageFor(m => m.Anuncios)
-        <br />
-        <br />
-        <i class="fas fa-user-circle"></i>
-        <label class=" animate__animated animate__fadeInLeft">Usuario</label>
-        <br />
-        @Html.TextBoxFor(m => m.UsuarioID)
-        @Html.ValidationMessageFor(m => m.UsuarioID)
-        <br />
-        <br />
-        <i class="fas fa-address-card"></i>
-        <label class=" animate__animated animate__fadeInLeft">Codigo id de Empresa</label>
-        <br />
-        @Html.TextBoxFor(m => m.EmpresaID)
-        @Html.ValidationMessageFor(m => m.EmpresaID)
-        <br />
-        <br />
-        <br />
-        <input type="submit" class="btn btn-outline-danger animate__animated animate__jello ">
-        <br>
+       <section class="banner contenedor">
 
-        </body>
+           <div class="banner_img">
+               <img src="~/css/anuncio.gif" alt="" class="animate__animated animate__backInDown">
+           </div>
+       </section>
+
+       <h2 style="color: royalblue" class=" animate__animated animate__fadeInLeft">Ingrese su Anuncio por favor.</h2>
+       <br>
+       <i class="fas fa-newspaper"></i>
+       <label class=" animate__animated animate__fadeInLeft">Anuncio</label>
+       <br />
+       @Html.TextBoxFor(m => m.Anuncios)
+       @Html.ValidationMessageFor(m => m.Anuncios)
+       <br />
+       <br />
+       <i class="fas fa-user-circle"></i>
+       <label class=" animate__animated animate__fadeInLeft">Usuario</label>
+       <br />
+       @Html.TextBoxFor(m => m.UsuarioID)
+       @Html.ValidationMessageFor(m => m.UsuarioID)
+       <br />
+       <br />
+       <i class="fas fa-address-card"></i>
+       <label class=" animate__animated animate__fadeInLeft">Codigo id de Empresa</label>
+       <br />
+       @Html.TextBoxFor(m => m.EmpresaID)
+       @Html.ValidationMessageFor(m => m.EmpresaID)
+       <br />
+       <br />
+       <br />
+       <input type="submit" class="btn btn-outline-danger animate__animated animate__jello ">
+       <br>
+
+   </body>
     }
 <h2 class="wow animate__animated animate__pulse" data-wow-duration="2s" data-wow-delay="2s">Guardar</h2>
 <script src="https://cdn.boomcdn.com/libs/wow-js/1.3.0/wow.js"></script>

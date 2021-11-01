@@ -18,7 +18,15 @@
 
 @using (Html.BeginForm("Guardar", "Home", FormMethod.Post))
 {
+    <link rel="stylesheet" href="~/css/Estilo.css" />
+<body>
 
+    <section class="banner contenedor">
+
+        <div class="banner_img">
+            <img src="~/css/registro.gif" alt="" class="animate__animated animate__backInDown">
+        </div>
+    </section>
 
     <h2 style="color: royalblue" class=" animate__animated animate__bounce">Bienvenido, Ingrese sus datos para Registrarse</h2>
     <br>
@@ -77,6 +85,8 @@
     <br />
     <input type="submit" class="btn btn-outline-danger animate__animated animate__jello ">
     <br>
+
+</body>
 }
 <h2  class="wow animate__animated animate__pulse" data-wow-duration="2s" data-wow-delay="2s">Guardar</h2>
 <script src="https://cdn.boomcdn.com/libs/wow-js/1.3.0/wow.js"></script>

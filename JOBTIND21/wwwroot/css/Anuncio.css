@@ -3,10 +3,10 @@
 }
 
 contenedor {
-    width: 80%;
+    width: 90%;
     max-width: 1200px;
-    margin: 80px;
-    top: 40px;
+    margin: 90px;
+    top: 30px;
 }
 
 
@@ -19,6 +19,6 @@ contenedor {
 }
 
     .banner_img img {
-        width: 400px;
+        width: 500px;
         display: block;
     }
