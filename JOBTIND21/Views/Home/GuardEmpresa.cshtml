@@ -19,57 +19,66 @@
 
 @using (Html.BeginForm("GuardEmpresa", "Home", FormMethod.Post))
 {
+    <link rel="stylesheet" href="~/css/GuardEmpresa.css" />
 
+<body>
+        <section class="baner contenedor">
 
-    <h2 style="color: royalblue" class=" animate__animated animate__fadeInUp">Bienvenido, Ingrese los datos de la empresa para registrarla</h2>
-    <br>
-    <i class="fas fa-globe"></i>
-    <label class=" animate__animated animate__fadeInUp">Nombre de empresa</label>
-    <br />
-    @Html.TextBoxFor(m => m.Nombre_Empresa)
-    @Html.ValidationMessageFor(m => m.Nombre_Empresa)
-    <br />
-    <br />
-    <i class="fas fa-phone-square-alt"></i>
-    <label class=" animate__animated animate__fadeInUp">Telefono</label>
-    <br />
-    @Html.TextBoxFor(m => m.TelefonoEmp)
-    @Html.ValidationMessageFor(m => m.TelefonoEmp)
-    <br />
-    <br />
-    <i class="fas fa-at"></i>
-    <label class=" animate__animated animate__fadeInUp">Email</label>
-    <br />
-    @Html.TextBoxFor(m => m.EmailEmp)
-    @Html.ValidationMessageFor(m => m.EmailEmp)
-    <br />
-    <br />
+            <div class="banner_img">
+                <img src="~/css/empresa.gif" alt="" class="animate__animated animate__backInDown">
+            </div>
+        </section>
 
-    <i class="fas fa-lock"></i>
-    <label class=" animate__animated animate__fadeInUp">Contraseña</label>
-    <br />
-    @Html.TextBoxFor(m => m.ContraseñaEmp)
-    @Html.ValidationMessageFor(m => m.ContraseñaEmp)
-    <br />
-    <br />
+        <h2 style="color: royalblue" class=" animate__animated animate__fadeInUp">Bienvenido, Ingrese los datos de la empresa para registrarla</h2>
+        <br>
+        <i class="fas fa-globe"></i>
+        <label class=" animate__animated animate__fadeInUp">Nombre de empresa</label>
+        <br />
+        @Html.TextBoxFor(m => m.Nombre_Empresa)
+        @Html.ValidationMessageFor(m => m.Nombre_Empresa)
+        <br />
+        <br />
+        <i class="fas fa-phone-square-alt"></i>
+        <label class=" animate__animated animate__fadeInUp">Telefono</label>
+        <br />
+        @Html.TextBoxFor(m => m.TelefonoEmp)
+        @Html.ValidationMessageFor(m => m.TelefonoEmp)
+        <br />
+        <br />
+        <i class="fas fa-at"></i>
+        <label class=" animate__animated animate__fadeInUp">Email</label>
+        <br />
+        @Html.TextBoxFor(m => m.EmailEmp)
+        @Html.ValidationMessageFor(m => m.EmailEmp)
+        <br />
+        <br />
 
-    <i class="far fa-newspaper"></i>
-    <label class=" animate__animated animate__fadeInUp">Vacante</label>
-    <br />
-    @Html.TextBoxFor(m => m.Vacante)
-    @Html.ValidationMessageFor(m => m.Vacante)
-    <br />
-    <br />
+        <i class="fas fa-lock"></i>
+        <label class=" animate__animated animate__fadeInUp">Contraseña</label>
+        <br />
+        @Html.TextBoxFor(m => m.ContraseñaEmp)
+        @Html.ValidationMessageFor(m => m.ContraseñaEmp)
+        <br />
+        <br />
 
-    <i class="fas fa-th-list"></i>
-    <label class=" animate__animated animate__fadeInUp">Categoria</label>
-    <br />
-    @Html.TextBoxFor(m => m.CategoriaID)
-    @Html.ValidationMessageFor(m => m.CategoriaID)
-    <br />
-    <br />
-    <input type="submit" class="btn btn-outline-danger animate__animated animate__jello ">
-    <br>
+        <i class="far fa-newspaper"></i>
+        <label class=" animate__animated animate__fadeInUp">Vacante</label>
+        <br />
+        @Html.TextBoxFor(m => m.Vacante)
+        @Html.ValidationMessageFor(m => m.Vacante)
+        <br />
+        <br />
+
+        <i class="fas fa-th-list"></i>
+        <label class=" animate__animated animate__fadeInUp">Categoria</label>
+        <br />
+        @Html.TextBoxFor(m => m.CategoriaID)
+        @Html.ValidationMessageFor(m => m.CategoriaID)
+        <br />
+        <br />
+        <input type="submit" class="btn btn-outline-danger animate__animated animate__jello ">
+        <br>
+</body>
 }
 <h2 class="wow animate__animated animate__pulse" data-wow-duration="2s" data-wow-delay="2s">Guardar</h2>
 <script src="https://cdn.boomcdn.com/libs/wow-js/1.3.0/wow.js"></script>
